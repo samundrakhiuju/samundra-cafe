@@ -2,8 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. SMOOTH SCROLLING FOR NAVIGATION
-    // Ensures clicking "Menu" or "About" slides smoothly to the section
+    // 1. SMOOTH SCROLLING
     const navLinks = document.querySelectorAll('a[href^="#"]');
     
     navLinks.forEach(anchor => {
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                // Offset of 70px to account for the fixed navbar height
                 const offsetPosition = targetElement.offsetTop - 70;
 
                 window.scrollTo({
@@ -24,10 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. SCROLL REVEAL ANIMATION (INTERSECTION OBSERVER)
-    // Triggers the "reveal" class on menu cards when they enter the viewport
+    // 2. SCROLL REVEAL ANIMATION
     const observerOptions = {
-        threshold: 0.15, // Triggers when 15% of the element is visible
+        threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
     };
 
@@ -35,19 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('reveal');
-                // Once revealed, we can stop observing this specific element
                 revealObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    const menuCards = document.querySelectorAll('.menu-card');
-    menuCards.forEach(card => {
+    document.querySelectorAll('.menu-card').forEach(card => {
         revealObserver.observe(card);
     });
 
-    // 3. DYNAMIC NAVBAR STYLING
-    // Shrinks the navbar and adds a solid background when the user scrolls down
+    // 3. NAVBAR SCROLL EFFECT
     const navbar = document.querySelector('.navbar');
     
     window.addEventListener('scroll', () => {
@@ -60,6 +54,39 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.style.background = "rgba(255, 255, 255, 0.98)";
             navbar.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)";
         }
+    });
+
+    // 4. ACTIVE NAV LINK HIGHLIGHT (NEW 🔥)
+    const sections = document.querySelectorAll("section, header");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("nav-active");
+            if (link.getAttribute("href") === "#" + current) {
+                link.classList.add("nav-active");
+            }
+        });
+    });
+
+    // 5. SOCIAL ICON CLICK FEEDBACK (SUBTLE UX 🔥)
+    const socialIcons = document.querySelectorAll('.social-icons a');
+
+    socialIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            icon.style.transform = "scale(0.9)";
+            setTimeout(() => {
+                icon.style.transform = "scale(1.2)";
+            }, 100);
+        });
     });
 
 });
