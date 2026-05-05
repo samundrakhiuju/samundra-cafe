@@ -204,3 +204,39 @@ body {
   .info-block:last-child { border-bottom: none; }
   .menu-grid { grid-template-columns: 1fr; }
 }
+
+/* --- Social Icons --- */
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  font-size: 1.6rem;              /* 🔥 SIZE (increase/decrease here) */
+  margin: 0 14px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Instagram color */
+.social-icons a .fa-instagram {
+  color: #E4405F;
+}
+
+/* Facebook color */
+.social-icons a .fa-facebook-f {
+  color: #1877F2;
+}
+
+/* Hover effect (premium look) */
+.social-icons a:hover {
+  transform: scale(1.25);
+}
+
+/* Optional: hover glow */
+.social-icons a .fa-instagram:hover {
+  color: #ff5a75;
+}
+
+.social-icons a .fa-facebook-f:hover {
+  color: #3b82f6;
+}
