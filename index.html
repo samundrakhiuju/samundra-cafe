@@ -4,181 +4,136 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samundra Café | Himalayan Coffee & Kyoto Soul</title>
-  
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --gold: #c5a059;
-      --dark-charcoal: #1e1e1e;
-      --white: #ffffff;
-      --bg-warm: #fcfaf7;
-      --serif: 'Noto Serif JP', serif;
-      --sans: 'Montserrat', sans-serif;
-    }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+  <!-- Font Awesome (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    body {
-      background-color: var(--bg-warm);
-      color: var(--dark-charcoal);
-      line-height: 1.8;
-      font-family: var(--serif);
-      overflow-x: hidden;
-    }
-
-    .container { width: 90%; max-width: 1100px; margin: 0 auto; }
-
-    /* --- Navigation --- */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 5%;
-      background: rgba(255, 255, 255, 0.98);
-      position: fixed;
-      top: 0; width: 100%; z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transition: all 0.4s ease;
-    }
-
-    .logo { font-family: var(--sans); font-weight: 600; letter-spacing: 3px; font-size: 1.1rem; }
-    .logo span { color: var(--gold); }
-
-    .nav-links { display: flex; list-style: none; gap: 15px; align-items: center; }
-    
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark-charcoal);
-      font-size: 0.75rem;
-      font-family: var(--sans);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 10px 20px;
-      border: 1px solid transparent;
-      transition: 0.4s;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover, .nav-active {
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      border-radius: 4px;
-    }
-
-    .menu-main-btn {
-      background: var(--gold);
-      color: white !important;
-      border-radius: 4px;
-      box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3);
-    }
-
-    /* --- Hero Section --- */
-    .hero {
-      height: 85vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('cafe-bg.png');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--white);
-    }
-
-    .hero-content h1 { 
-      font-size: clamp(2rem, 6vw, 3.5rem); 
-      margin-bottom: 15px; 
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
-    }
-
-    /* --- Menu Section --- */
-    .menu-section { padding: 100px 0; background: var(--white); }
-    .section-header { text-align: center; margin-bottom: 60px; }
-    
-    .section-header h2 {
-      font-size: 2.4rem;
-      letter-spacing: 4px;
-      position: relative;
-      display: inline-block;
-      padding: 0 40px 15px 40px;
-    }
-
-    .section-header h2::before, 
-    .section-header h2::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 1px;
-    }
-
-    .section-header h2::before { top: -10px; background: var(--gold); }
-    .section-header h2::after { bottom: 0; background: var(--gold); }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-    }
-
-    .menu-card {
-      padding: 35px;
-      background: #fdfdfd;
-      border-left: 3px solid var(--gold); 
-      border: 1px solid #eee;
-      transition: all 0.5s;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    
-    .menu-card.reveal { opacity: 1; transform: translateY(0); }
-
-    .menu-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-    }
-
-    .item-header { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 12px; font-size: 1.1rem; }
-    .price { color: var(--gold); }
-    .desc { font-size: 0.9rem; color: #666; }
-
-    /* --- About --- */
-    .about-section { padding: 100px 0; text-align: center; }
-
-    /* --- Footer --- */
-    .footer { 
-      padding: 60px 0; 
-      background: #151515; 
-      color: rgba(255,255,255,0.3); 
-      text-align: center; 
-    }
-    .footer span.gold-text { color: var(--gold); }
-
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav class="navbar">
-  <div class="logo">SAMUNDRA <span>CAFÉ</span></div>
-</nav>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">SAMUNDRA <span>CAFÉ</span></div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-active">Home</a></li>
+      <li><a href="#menu" class="menu-main-btn">Menu</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
 
-<header class="hero">
-  <div class="hero-content">
-    
-    <!-- ✅ FIXED TEXT -->
-    <p style="letter-spacing: 8px; color: #ffffff; margin-bottom: 15px; text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
-      HIMALAYAN SOUL
-    </p>
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="hero-content">
+      <p style="letter-spacing: 8px; color: #ffffff; margin-bottom: 15px; text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
+        HIMALAYAN SOUL
+      </p>
+      <h1>純粋なヒマラヤの一滴、<br>京都の静寂と共に。</h1>
+    </div>
+  </header>
 
-    <h1>純粋なヒマラヤの一滴、<br>京都の静寂と共に。</h1>
-  </div>
-</header>
+  <!-- MENU -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Menu / お品書き</h2>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="item-header">
+            <span>Himalayan Hand-Drip</span>
+            <span class="price">¥500</span>
+          </div>
+          <p class="desc">ネパール直送の完熟豆を使用。標高が育んだ透明感のあるコクと香り。</p>
+        </div>
+
+        <div class="menu-card">
+          <div class="item-header">
+            <span>Kyoto Matcha Fusion</span>
+            <span class="price">¥400</span>
+          </div>
+          <p class="desc">宇治の高級抹茶とヒマラヤコーヒーが響き合う、当店限定のラテ。</p>
+        </div>
+
+        <div class="menu-card">
+          <div class="item-header">
+            <span>Nepal Spice Chiya</span>
+            <span class="price">¥350</span>
+          </div>
+          <p class="desc">ヒマラヤのスパイスを丁寧に煮出した、心温まる本格チャイ。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 style="margin-bottom: 40px; font-size: 2.2rem;">About Samundra Café</h2>
+      <div class="about-text">
+        <p>「世界最高峰の恵みを、日本の伝統の中で。」</p>
+        <p>サムンドラ・カフェは、ネパール・ヒマラヤの高地で育った無農薬のコーヒー豆と、京都の静かな美意識を融合させた空間です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORE INFO -->
+  <section class="store-info-section">
+    <div class="info-glass-row">
+      <div class="info-block">
+        <span class="info-label">Opening Hours</span>
+        <p class="info-data">9:00 AM — 8:00 PM</p>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Closed</span>
+        <p class="info-data">Every Thursday</p>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Location</span>
+        <p class="info-data">Kyoto</p>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Contact</span>
+        <p class="info-data">075-XXX-XXXX</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+
+      <p style="margin-bottom: 15px;">
+        Built by <span class="gold-text">キウズ サムンドラ</span>
+      </p>
+
+      <!-- SOCIAL ICONS -->
+      <div class="social-icons">
+        <a href="https://instagram.com/yourusername" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/yourusername" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+
+      <p style="margin-top: 15px;">
+        &copy; 2026 Samundra Café
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
 
 </body>
 </html>
