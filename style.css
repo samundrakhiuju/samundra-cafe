@@ -196,7 +196,15 @@ body {
   color: var(--gold);
   transform: scale(1.2);
 }
+/* Twitter default */
+.social-icons a .fa-twitter {
+  color: rgba(255,255,255,0.7);
+}
 
+/* Hover */
+.social-icons a:hover .fa-twitter {
+  color: var(--gold);
+}
 /* --- Mobile --- */
 @media (max-width: 768px) {
   .menu-grid { grid-template-columns: 1fr; }
