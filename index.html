@@ -79,7 +79,7 @@
     /* --- Hero Section --- */
     .hero {
       height: 85vh;
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('cafe-bg.png');
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('cafe-bg.png');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -89,9 +89,13 @@
       color: var(--white);
     }
 
-    .hero-content h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+    .hero-content h1 { 
+      font-size: clamp(2rem, 6vw, 3.5rem); 
+      margin-bottom: 15px; 
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
+    }
 
-    /* --- Menu Section with Design Borders --- */
+    /* --- Menu Section --- */
     .menu-section { padding: 100px 0; background: var(--white); }
     .section-header { text-align: center; margin-bottom: 60px; }
     
@@ -126,12 +130,8 @@
       padding: 35px;
       background: #fdfdfd;
       border-left: 3px solid var(--gold); 
-      border-top: 1px solid #eee;
-      border-right: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-      position: relative;
-      overflow: hidden;
+      border: 1px solid #eee;
+      transition: all 0.5s;
       opacity: 0;
       transform: translateY(30px);
     }
@@ -141,218 +141,44 @@
     .menu-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-      border-color: var(--gold);
     }
 
     .item-header { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 12px; font-size: 1.1rem; }
-    .price { color: var(--gold); font-family: var(--sans); }
-    .desc { font-size: 0.9rem; color: #666; font-weight: 400; }
+    .price { color: var(--gold); }
+    .desc { font-size: 0.9rem; color: #666; }
 
-    /* --- About Section --- */
-    .about-section { padding: 100px 0; background: var(--bg-warm); text-align: center; }
-    .about-text { max-width: 850px; margin: 0 auto; line-height: 2.4; font-size: 1.1rem; }
-
-    /* --- Store Info (Compact Glassmorphism) --- */
-    .store-info-section {
-      padding: 60px 0;
-      background: url('cafe-bg.png') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
-      position: relative;
-    }
-    
-    .info-glass-row {
-      display: flex;
-      flex-wrap: nowrap;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      padding: 20px;
-      border-radius: 4px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      max-width: 950px;
-      margin: 0 auto;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      align-items: center;
-    }
-
-    .info-block {
-      flex: 1;
-      padding: 5px 15px;
-      text-align: center;
-      border-right: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .info-block:last-child { border-right: none; }
-
-    .info-label {
-      font-size: 0.6rem;
-      letter-spacing: 2px;
-      color: var(--gold);
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      font-weight: 600;
-      display: block;
-    }
-
-    .info-data { font-size: 0.9rem; font-weight: 700; color: #222; line-height: 1.2; }
-    .info-sub { font-size: 0.7rem; color: #666; margin-top: 2px; }
+    /* --- About --- */
+    .about-section { padding: 100px 0; text-align: center; }
 
     /* --- Footer --- */
     .footer { 
       padding: 60px 0; 
       background: #151515; 
       color: rgba(255,255,255,0.3); 
-      font-size: 0.8rem; 
       text-align: center; 
     }
-    .footer span.gold-text { color: var(--gold); font-weight: 600; }
+    .footer span.gold-text { color: var(--gold); }
 
-    /* --- Mobile Fixes --- */
-    @media (max-width: 768px) {
-      .info-glass-row { flex-direction: column; max-width: 90%; padding: 15px; }
-      .info-block { border-right: none; border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 12px 0; width: 100%; }
-      .info-block:last-child { border-bottom: none; }
-      .menu-grid { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
+
 <body>
 
-  <nav class="navbar">
-    <div class="logo">SAMUNDRA <span>CAFÉ</span></div>
-    <ul class="nav-links">
-      <li><a href="#home" class="nav-active">Home</a></li>
-      <li><a href="#menu" class="menu-main-btn">Menu</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
+<nav class="navbar">
+  <div class="logo">SAMUNDRA <span>CAFÉ</span></div>
+</nav>
 
-  <header id="home" class="hero">
-    <div class="hero-content">
-      <p style="letter-spacing: 8px; color: var(--white); margin-bottom: 15px;">HIMALAYAN SOUL</p>
-      <h1>純粋なヒマラヤの一滴、<br>京都の静寂と共に。</h1>
-    </div>
-  </header>
+<header class="hero">
+  <div class="hero-content">
+    
+    <!-- ✅ FIXED TEXT -->
+    <p style="letter-spacing: 8px; color: #ffffff; margin-bottom: 15px; text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
+      HIMALAYAN SOUL
+    </p>
 
-  <section id="menu" class="menu-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Menu / お品書き</h2>
-      </div>
-      
-      <div class="menu-grid">
-        <div class="menu-card">
-          <div class="item-header">
-            <span>Himalayan Hand-Drip</span>
-            <span class="price">¥500</span>
-          </div>
-          <p class="desc">ネパール直送の完熟豆を使用。標高が育んだ透明感のあるコクと香り。</p>
-        </div>
-
-        <div class="menu-card">
-          <div class="item-header">
-            <span>Kyoto Matcha Fusion</span>
-            <span class="price">¥400</span>
-          </div>
-          <p class="desc">宇治の高級抹茶とヒマラヤコーヒーが響き合う、当店限定のラテ。</p>
-        </div>
-
-        <div class="menu-card">
-          <div class="item-header">
-            <span>Nepal Spice Chiya</span>
-            <span class="price">¥350</span>
-          </div>
-          <p class="desc">ヒマラヤのスパイスを丁寧に煮出した、心温まる本格チャイ。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="about-section">
-    <div class="container">
-      <h2 style="margin-bottom: 40px; font-size: 2.2rem;">About Samundra Café</h2>
-      <div class="about-text">
-        <p>「世界最高峰の恵みを、日本の伝統の中で。」</p>
-        <p>サムンドラ・カフェは、ネパール・ヒマラヤの高地で育った無農薬のコーヒー豆と、京都の静かな美意識を融合させた空間です。一口ごとにヒマラヤの風を感じる、贅沢な時間をお届けします。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="store-info-section">
-    <div class="info-glass-row">
-      <div class="info-block">
-        <span class="info-label">Opening Hours</span>
-        <p class="info-data">9:00 AM — 8:00 PM</p>
-        <p class="info-sub">L.O. 7:30 PM</p>
-      </div>
-      <div class="info-block">
-        <span class="info-label">Closed On</span>
-        <p class="info-data">毎週木曜日</p>
-        <p class="info-sub">Every Thursday</p>
-      </div>
-      <div class="info-block">
-        <span class="info-label">Location</span>
-        <p class="info-data">京都市南区</p>
-        <p class="info-sub">Minami-ku, Kyoto</p>
-      </div>
-      <div class="info-block">
-        <span class="info-label">Contact</span>
-        <p class="info-data">075-XXX-XXXX</p>
-        <p class="info-sub">Inquiries Welcome</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p style="margin-bottom: 15px;">Built by <span class="gold-text">キウズ サムンドラ</span> | 国際経営情報専門学校</p>
-      <p>&copy; 2026 Samundra Café. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Smooth Scrolling
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            window.scrollTo({
-              top: target.offsetTop - 70,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-
-      // 2. Scroll Reveal Animation
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.menu-card').forEach(card => {
-        observer.observe(card);
-      });
-
-      // 3. Navbar Resize on Scroll
-      window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-          nav.style.padding = "10px 5%";
-          nav.style.background = "rgba(255, 255, 255, 1)";
-        } else {
-          nav.style.padding = "15px 5%";
-          nav.style.background = "rgba(255, 255, 255, 0.98)";
-        }
-      });
-    });
-  </script>
+    <h1>純粋なヒマラヤの一滴、<br>京都の静寂と共に。</h1>
+  </div>
+</header>
 
 </body>
 </html>
